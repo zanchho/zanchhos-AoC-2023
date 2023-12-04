@@ -1,17 +1,8 @@
 "use strict"
-import { promises } from "fs"
 
-const readFile = async path => {
-  try {
-    const data = await promises.readFile(path, "utf-8")
-    return data
-  } catch (error) {
-    console.error("Error:", error)
-    throw error
-  }
-}
+import { readFile } from "../../getDataFromFile"
 
-const testPath = "part1/data.txt"
+const testPath = "day3/part1-2/data.txt"
 const data = await readFile(testPath)
 const rows = data.trim().split(/\r?\n/)
 const numToSum = []
@@ -69,3 +60,4 @@ function containsNonNumericOrDot(str) {
   const regex = /[^0-9.]/
   return regex.test(str)
 }
+return result
